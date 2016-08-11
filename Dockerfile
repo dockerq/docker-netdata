@@ -6,7 +6,7 @@ RUN apt-get update && \
     autoconf autoconf-archive autogen automake pkg-config
 WORKDIR /opt/netdata
 RUN git clone https://github.com/firehol/netdata.git --depth=1 && \
-    cd netdata && echo "\n" | ./netdata-installer.sh && \
+    cd netdata && ./netdata-installer.sh --dont-wait --dont-start-it && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 EXPOSE 19999
